@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/ckeditor5/ckeditor.js"></script>
+</head>
+
+<body>
+    <!-- 导航条 -->
+    <%- include('../common/header.ejs') %>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+
+                    <%- include('../common/aside.ejs') %>
+
+                </div>
+                <div class="col-md-10">
+                    <ol class="breadcrumb">
+                        <li><a href="/admin/productlist">商品管理</a></li>
+                        <li class="active">修改商品</li>
+                    </ol>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">修改商品</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" action="/admin/doproductedit?id=<%=lists._id%>" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-1 control-label">商品名称:</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" name="title" value="<%=lists.title%>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-1 control-label">商品图片:</label>
+                                    <div class="col-sm-2">
+                                        <input type="file" id="file" class="form-control" style="border: 0px !important; outline: none;" name="pic">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-1 control-label"></label>
+                                    <div class="col-sm-2">
+                                        <img src="<%=lists.pic%>" alt="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-1 control-label">商品价格:</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" name="price" value="<%=lists.price%>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-1 control-label">商品邮费:</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" name="postage" value="<%=lists.postage%>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-1 control-label">商品描述:</label>
+                                    <div class="col-sm-7">
+                                        <textarea name="content" id="ckeditor" cols="60" rows="10"><%=lists.content%></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-1 control-label">
+                                         <input type="submit" value="提交">
+                                    </label>
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let ckeditor;
+            ClassicEditor.create(document.querySelector("#ckeditor")).then((res) => {
+                    console.log(res);
+                }) //#ckeditor 多行文本上边定义的id
+
+            // js实现上传预览
+            let file = document.querySelector("#file") //获取上传文件的input
+            let thumb = document.querySelector("#thumb"); //获取上传图片之后预览img标签
+            file.onchange = function() {
+                //1、创建一个文件读取对象
+                let render = new FileReader()
+                console.log(this.files[0]);
+                //2、读取文件
+                console.log(render);
+                render.readAsDataURL(this.files[0])
+                render.onload = function() {
+                    console.log(render.result);
+                    thumb.src = render.result
+                }
+            }
+        </script>
+        <script src="./bootstrap/js/jquery-3.4.1.js"></script>
+        <script src="./bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

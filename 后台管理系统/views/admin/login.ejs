@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        html {
+            background: url("/images/u=2060729202\,242880814&fm=26&gp=0.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* background-color: #00b4ef; */
+        }
+        
+        .login-in {
+            width: 600px;
+            margin: 50px auto 0;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            width: 600px;
+            margin: 200px auto 0;
+            text-align: center;
+            text-shadow: 2px 2px 20px #000, -2px -2px 4px #fff;
+        }
+        
+        h2 {
+            padding: 30px 0px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        input {
+            outline: none;
+            margin-top: 40px;
+            width: 400px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid #f0f0f0;
+            background-color: #f0f0f0;
+        }
+        
+        .text,
+        .password {
+            text-indent: 2em;
+        }
+        
+        .submit {
+            margin-bottom: 40px;
+            background-color: #00b4ef;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>后台商品管理系统</h1>
+    <div class="login-in">
+        <form action="/admin/dologin" method="post">
+            <h2>用户登录</h2>
+            <input type="text" name="username" placeholder="用户名或者电子邮箱" class="text"><br>
+            <input type="password" name="password" placeholder="密码" class="password"><br>
+            <input type="submit" value="登录" class="submit">
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+.navbar {
+    background-color: #46473f;
+}
+
+.navbar-brand {
+    width: 200px;
+}
+
+.navbar-ul1 {
+    background-color: #080808;
+}
+
+.navbar-ul1>li>a {
+    color: #fff !important;
+}
+
+.navbar-right>li>a {
+    color: #fff !important;
+}
+
+.list-group-item {
+    padding: 15px;
+}
+
+.table-striped th,
+.table-striped td {
+    text-align: center;
+    vertical-align: middle !important;
+}
